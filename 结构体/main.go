@@ -9,17 +9,17 @@ type person struct {
 	hobby []string
 }
 
-func f(x person)  {
+func f(x *person)  {
 	x.name = "梦想"
 	//fmt.Println(x)    // 说明在go语言中在从外部传参到函数内部，是copy一个副本过来的，底层是说，重新声明了一个变量
 	                  // 修改函数内部的值，对函数外部的值不会进行修改
 
 }
 
-func f2(x *person)  {
-	x.name = "梦想2"
-	//fmt.Println(x)       // 如果想要修改原有数据，需要根据源数据指针进行更改数据
-}
+//func f2(x *person)  {
+//	x.name = "梦想2"
+//	//fmt.Println(x)       // 如果想要修改原有数据，需要根据源数据指针进行更改数据
+//}
 
 
 
@@ -29,7 +29,7 @@ func main()  {
 	p.age = 18
 	p.gender = "男"
 	p.hobby = []string{"篮球","足球"}
-	f2(&p)
+	//f2(&p)
 	//fmt.Println(p)
 	//// 匿名结构体
 	//var s struct {
@@ -53,9 +53,13 @@ func main()  {
 			"篮球","乒乓球",
 		},
 	}
-	fmt.Println(p3)
+	f(&p3)
+	fmt.Printf("%p\n", &p3)
+	m := make(map[string][]string, 10)
+	m["名称"] = []string{"李云鹏"}
 
 
+	fmt.Println(m)
 
 
 }

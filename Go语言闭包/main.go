@@ -22,6 +22,7 @@ func lixiang(x func(int, int), m, n int) int {
 func main()  {
 	a := lixiang(f1, 100, 200)
 	fmt.Println(a)
+	fmt.Printf("%T", f1)
 }
 
 
