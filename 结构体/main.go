@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type person struct {
 	name string
@@ -60,6 +62,12 @@ func main()  {
 
 
 	fmt.Println(m)
+
+	s := [...]int{1,2,3,4,5}
+
+	for _,v := range s{
+		fmt.Println(v)
+	}
 
 
 }
